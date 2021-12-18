@@ -2,8 +2,9 @@
   --color-white: #fefefe;
   --color-orange: #fc462d;
   --color-maichite: #0ac763;
+  --color-maichitehover: #087239f3;
   --color-silver: #bdbcbc;
-  --color-cocoaBrown: #332927;
+  --color-cocoaBrown: #332927ec;
   --color-bulder: #b8b4b4;
   --color-scarlet: #ff1f18;
   --color-Cobalt: #0252bc;
@@ -51,4 +52,38 @@ code {
   background-repeat: no-repeat;
   background-position: center;
   margin-block-start: 40px;
+}
+
+.ml-1 {
+  margin-inline-start: 0.5rem;
+}
+.ml-2 {
+  margin-inline-start: 1rem;
+}
+
+.ml-3 {
+  margin-inline-start: 1.5rem;
+}
+
+.mb-0 {
+  margin-block: 0;
+}
+
+.icon-arrow {
+  font-size: 0.5rem;
+}
+
+.icon-minus {
+  font-size: 0.5rem;
+}
+
+.contentIcon {
+  width: 40px;
+  height: 40px;
+  display: flex;
+  border-radius: 0.5rem;
+  background-color: var(--color-cocoaBrown);
+  color: var(--color-white);
+  justify-content: center;
+  align-items: center;
 }

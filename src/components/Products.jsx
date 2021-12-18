@@ -1,12 +1,14 @@
-import React, { useEffect, useState } from "react";
+import React, { useContext, useEffect, useState } from "react";
+import { CarritoContext } from "../context/CarritoContext";
 import { CardContainer, ProductContainer } from "../styles/main";
 import ProductCard from "./ProductCard";
 
-const Products = () => {
+const Products = ({ urlData, sectionTitle }) => {
+  const { carrito, setCarrito } = useContext(CarritoContext);
   const [products, setProducts] = useState([]);
 
   useEffect(() => {
-    const url = `http://localhost:1337/api/products?populate=image,products`;
+    const url = urlData;
     getProducts(url);
     console.log(products);
   }, []);
@@ -19,7 +21,7 @@ const Products = () => {
 
   return (
     <ProductContainer className="">
-      <h2>Ofertas</h2>
+      <h2>{sectionTitle}</h2>
 
       <CardContainer className="">
         {products.map((product) => (
