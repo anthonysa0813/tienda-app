@@ -1,14 +1,26 @@
 import React, { useContext } from "react";
+import { Link } from "react-router-dom";
 import { CarritoContext } from "../context/CarritoContext";
 import { Menu, ModalBg } from "../styles/main";
+import MapProducts from "./MapProducts";
+import familyIcon from "../images/family-shopping.svg";
 
 const BarMenu = ({ sideMenu, setSideMenu }) => {
-  const { carrito } = useContext(CarritoContext);
+  const { carrito, setCarrito } = useContext(CarritoContext);
   const { products, priceTotal } = carrito;
   console.log(products);
   const handleClick = () => {
     console.log(sideMenu);
     setSideMenu(!sideMenu);
+  };
+
+  const resetCar = () => {
+    console.log("hehehehey");
+
+    setCarrito({
+      products: [],
+      priceTotal: 0,
+    });
   };
 
   return (
@@ -22,34 +34,29 @@ const BarMenu = ({ sideMenu, setSideMenu }) => {
             <i className="icon-closeIcon"></i>
           </div>
         </div>
-        {products.map((product) => (
-          <div className="productMenu">
-            <div className="col-1">
-              <div className="avatarProduct ">
-                <img src={product.image} alt={product.name} />
-              </div>
-              <div className="infoProduct">
-                <p>{product.name}</p>
-                <strong>${product.price}</strong>
-              </div>
+        {products.length > 0 ? (
+          <>
+            <MapProducts products={products} />
+            <div className="totalInfo ">
+              <button className="btn" onClick={resetCar}>
+                Vaciar canasta
+              </button>
+              <Link className="goTopay" to="/formulario" exact>
+                <span className="countProduct">{products.length}</span>
+                <span className="text">Ir a pagar</span>
+                <p className="totalPrice">${priceTotal}</p>
+              </Link>
             </div>
-            <div className="col-2 ">
-              <div className="count">
-                <span>-</span>
-                <span>1u</span>
-                <span>+</span>
-              </div>
-            </div>
+          </>
+        ) : (
+          <div className="cartEmpty">
+            <img src={familyIcon} alt="imagen de no hay productos" />
+            <p onClick={resetCar}>Tu canasta está vacía</p>
+            <button className="btn-primary text-center">
+              Agregar Productos
+            </button>
           </div>
-        ))}
-        <div className="totalInfo ">
-          <span>Vaciar canasta</span>
-          <div className="goTopay">
-            <span className="countProduct">{products.length}</span>
-            <span className="text">Ir a pagar</span>
-            <p className="totalPrice">${priceTotal}</p>
-          </div>
-        </div>
+        )}
       </Menu>
     </ModalBg>
   );

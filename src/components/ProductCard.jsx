@@ -9,19 +9,20 @@ const ProductCard = ({ product }) => {
   const { data } = image;
 
   const addProduct = (product) => {
-    console.log(product);
     setCarrito({
       ...carrito,
-      products: [
-        ...carrito.products,
-        {
-          id: product.id,
-          name: product.attributes.name,
-          price: product.attributes.price,
-          discount: product.attributes.discount,
-          image: `http://localhost:1337${product.attributes.image.data.attributes.url}`,
-        },
-      ],
+      products: carrito.products.some((p) => p.name === product.attributes.name)
+        ? [...carrito.products]
+        : [
+            ...carrito.products,
+            {
+              id: product.id,
+              name: product.attributes.name,
+              price: product.attributes.price,
+              discount: product.attributes.discount,
+              image: `http://localhost:1337${product.attributes.image.data.attributes.url}`,
+            },
+          ],
       priceTotal: carrito.priceTotal + parseInt(product.attributes.price),
     });
   };

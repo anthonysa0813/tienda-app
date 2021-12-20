@@ -128,6 +128,15 @@ export const ModalLocalContainer = styled.div`
   /* height: 40vh; */
   overflow: auto;
   position: sticky;
+  & .imageSuccess {
+    display: flex;
+    flex-direction: column;
+    justify-content: center;
+    align-items: center;
+    & a {
+      text-decoration: none;
+    }
+  }
 
   & .country,
   .subCountry {
@@ -233,6 +242,13 @@ export const Menu = styled.div`
   background-color: var(--color-white);
   height: 100vh;
   width: 40%;
+  & .cartEmpty {
+    height: 100%;
+    display: flex;
+    flex-direction: column;
+    justify-content: center;
+    align-items: center;
+  }
   & .titleMenu {
     display: flex;
     justify-content: space-between;
@@ -291,6 +307,7 @@ export const Menu = styled.div`
       padding: 8px 16px;
       background-color: var(--color-maichite);
       color: var(--color-white);
+      text-decoration: none;
     }
     .countProduct {
       background-color: #2e7e78;
@@ -306,4 +323,97 @@ export const Menu = styled.div`
       margin: 0;
     }
   }
+`;
+
+export const FormContainer = styled.div`
+  grid-column: 1/-1;
+  padding-block-start: 1rem;
+  & .next {
+    margin-block-end: 1.5rem;
+  }
+  & .formContent {
+    display: flex;
+  }
+  & .formLeft {
+    flex: 1 0 50%;
+    background-color: #fff;
+    box-shadow: 0px 11px 29px 0px #0000000D;
+    border-radius: 1rem;
+    padding: 1rem;
+  }
+  & .formRight {
+    flex: 1 0 50%;
+    & form {
+      width: 80%;
+      margin: auto;
+      display: flex;
+      flex-direction: column;
+      & label:nth-of-type(2) {
+        margin-block-start: 30px;
+      }
+      
+      & .inputContent {
+        display: flex;
+        justify-content: space-between;
+        background-color: #fff;
+        box-shadow: 0px 11px 29px 0px #0000000D;
+        padding: .5rem 1rem;
+        border-radius: .5rem;
+        & .inputLeft {
+          flex: 1 0 50%;
+          border-right: 1px solid #e1e1e1;
+        }
+        & .inputRight {
+          flex: 1 0 50%;
+          display: flex;
+        }
+      }
+      & .blockInput {
+        border-bottom-left-radius: none;
+      }
+      & input {
+        border: none;
+        width: 80%;
+        padding: .5rem;
+        outline: none;
+      }
+    }
+  }
+  & .productMenu {
+    display: flex;
+    justify-content: space-between;
+    border-bottom: 1px solid #e1e1e1;
+    padding: 1rem;
+
+    & .col-1 {
+      display: flex;
+      gap: 27px;
+    }
+    & .col-1 .avatarProduct {
+      width: 64px;
+      height: 64px;
+    }
+    & img {
+      width: 100%;
+      object-fit: cover;
+    }
+    & .infoProduct p {
+      margin: 0;
+    }
+    .col-2 {
+      display: flex;
+      align-items: center;
+    }
+    & .col-2 .count {
+      display: flex;
+      gap: 21px;
+      font-size: 1.25rem;
+      border-radius: 0.5rem;
+      padding: 0.5rem;
+      background: var(--color-white);
+      box-shadow: 8px 8px 38px var(--color-silver), -8px -8px 38px #f9f9f9;
+    }
+    & span {
+      cursor: pointer;
+    }
 `;

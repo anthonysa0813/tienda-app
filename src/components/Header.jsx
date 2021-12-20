@@ -17,7 +17,7 @@ const Header = () => {
       <HeaderContainer>
         <h1 className="">Tiendita</h1>
 
-        <div className="menuHeader ">
+        <div className="menuHeader debug ">
           <div className="location " onClick={() => setShowModal(!showModal)}>
             <i className="icon-locationIcon"></i>
             <p className="ml-1 mb-0">{local}</p>

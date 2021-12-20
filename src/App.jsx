@@ -5,28 +5,39 @@ import Products from "./components/Products";
 import CarritoProvider from "./context/CarritoContext";
 import LocationProvider from "./context/Location";
 import { GridContainer } from "./styles/main";
+import { BrowserRouter as Router, Switch, Route } from "react-router-dom";
+import Formulario from "./components/Formulario";
 
 const App = () => {
   return (
-    <CarritoProvider>
-      <LocationProvider>
-        <GridContainer>
-          <Header />
-          <div className="wrapper">
-            <Hero />
+    <Router>
+      <Switch>
+        <CarritoProvider>
+          <LocationProvider>
+            <GridContainer>
+              <Route path="/" exact>
+                <Header />
+                <div className="wrapper">
+                  <Hero />
 
-            <Products
-              sectionTitle={"Ofertas"}
-              urlData={`http://localhost:1337/api/products?populate=image,products`}
-            />
-            <Products
-              sectionTitle={"Los más populares"}
-              urlData={`http://localhost:1337/api/populars?populate=image,lacteos`}
-            />
-          </div>
-        </GridContainer>
-      </LocationProvider>
-    </CarritoProvider>
+                  <Products
+                    sectionTitle={"Ofertas"}
+                    urlData={`http://localhost:1337/api/products?populate=image,products`}
+                  />
+                  <Products
+                    sectionTitle={"Los más populares"}
+                    urlData={`http://localhost:1337/api/populars?populate=image,lacteos`}
+                  />
+                </div>
+              </Route>
+              <Route path="/formulario">
+                <Formulario />
+              </Route>
+            </GridContainer>
+          </LocationProvider>
+        </CarritoProvider>
+      </Switch>
+    </Router>
   );
 };
 

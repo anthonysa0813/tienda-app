@@ -69,6 +69,19 @@ code {
   margin-block: 0;
 }
 
+.mt-1 {
+  margin-block-start: 0.5rem;
+}
+
+.mt-2 {
+  margin-block-start: 0.75rem;
+}
+.mt-3 {
+  margin-block-start: 1rem;
+}
+.mt-4 {
+  margin-block-start: 1.25rem;
+}
 .icon-arrow {
   font-size: 0.5rem;
 }
@@ -86,4 +99,53 @@ code {
   color: var(--color-white);
   justify-content: center;
   align-items: center;
+}
+.contentIcon a {
+  text-decoration: none;
+  color: var(--color-white);
+}
+.left-radius {
+  border-radius: 50%;
+}
+
+.btn-primary {
+  border: none;
+  padding: 1rem;
+  border-radius: 4px;
+  font-size: 1.25rem;
+  background-color: #0ac763;
+  color: var(--color-white);
+  transition: all 0.5s ease;
+}
+.btn-primary:hover {
+  background-color: var(--color-maichitehover);
+}
+
+.text-center {
+  text-align: center;
+}
+
+.alert-danger {
+  padding: 1rem;
+
+  background-color: #ec7063;
+  color: var(--color-white);
+  border-radius: 4px;
+}
+
+.btn {
+  border: none;
+  outline: none;
+  padding: 1rem;
+  border-radius: 0.5rem;
+  background-color: #fafafa;
+  color: var(--color-scarlet);
+  cursor: pointer;
+  outline: 1px solid var(--color-scarlet);
+}
+
+.btn:hover {
+  background-color: #ff1f18;
+  color: white;
+  transition: all 0.3s ease;
 }
