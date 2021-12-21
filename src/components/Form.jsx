@@ -60,7 +60,7 @@ const Form = () => {
             onChange={handleChange}
           />
         </div>
-        <label>Información de la tarjeta</label>
+        <label className="mt-3">Información de la tarjeta</label>
         <div className="inputContent mt-3">
           <input
             type="text"
@@ -93,7 +93,7 @@ const Form = () => {
         <div className="inputContent ">
           <input type="text" name="name" onChange={handleChange} />
         </div>
-        <button className="btn-primary mt-3" type="submit">
+        <button className="btn-primary mt-3 mb-3" type="submit">
           <span>Pagar ${priceTotal}.00 </span>
         </button>
       </form>
@@ -103,7 +103,7 @@ const Form = () => {
             <div className="imageSuccess ">
               <img src={imageSuccess} alt="Success process" />
               <h3>¡Gracias por tu compra!</h3>
-              <Link className="btn-primary  text-center" to="/" exact>
+              <Link className="btn-primary  text-center  " to="/" exact>
                 Seguir comprando
               </Link>
             </div>

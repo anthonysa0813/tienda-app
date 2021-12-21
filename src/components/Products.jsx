@@ -23,7 +23,7 @@ const Products = ({ urlData, sectionTitle }) => {
     <ProductContainer className="">
       <h2>{sectionTitle}</h2>
 
-      <CardContainer className="">
+      <CardContainer className="mb-3">
         {products.map((product) => (
           <ProductCard product={product} />
         ))}

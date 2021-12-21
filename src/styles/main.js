@@ -9,11 +9,19 @@ export const GridContainer = styled.div`
 export const HeaderContainer = styled.header`
   grid-column-start: 1;
   grid-column-end: -1;
-  display: flex;
+  display: grid;
   background-color: var(--color-white);
-  justify-content: space-between;
-  align-items: center;
-  padding: 24px 40px;
+  grid-template-columns: repeat(12, 1fr);
+  padding: 0.5rem;
+
+  & .title {
+    grid-column: 1/-1;
+  }
+
+  & .menuHeader {
+    grid-column: 1/-1;
+    justify-content: flex-end;
+  }
   & h1 {
     font-family: Inter;
     font-weight: 900;
@@ -21,6 +29,7 @@ export const HeaderContainer = styled.header`
     font-size: 1.375rem;
     line-height: 1rem;
     color: var(--color-orange);
+    text-align: center;
   }
 
   & .location {
@@ -47,6 +56,16 @@ export const HeaderContainer = styled.header`
     padding: 9px 24px;
     border-radius: 0.5rem;
   }
+  @media (min-width: 600px) {
+    padding: 24px 40px;
+    & .menuHeader {
+      grid-column: 8/-1;
+      justify-content: flex-end;
+    }
+    & .title {
+      grid-column: 1/2;
+    }
+  }
 `;
 
 export const HeroContainer = styled.div`
@@ -57,9 +76,11 @@ export const HeroContainer = styled.div`
 `;
 
 export const ProductContainer = styled.div`
-  margin-block-start: 40px;
-  padding-inline: 40px;
   overflow-y: auto;
+  @media (min-width: 600px) {
+    margin-block-start: 40px;
+    padding-inline: 40px;
+  }
 `;
 
 export const CardContainer = styled.div`
@@ -121,7 +142,7 @@ export const ModalLocalContainer = styled.div`
   padding: 40px;
   border-radius: 1rem;
   background-color: var(--color-white);
-  width: 50%;
+  width: 70%;
   margin: 0 auto;
   margin-block-start: 80px;
   opacity: 1;
@@ -165,11 +186,12 @@ export const ModalLocalContainer = styled.div`
     position: absolute;
     width: 40px;
     height: 40px;
+    top: 10px;
     cursor: pointer;
     display: flex;
     justify-content: center;
     align-items: center;
-    right: 50px;
+    right: 20px;
     border-radius: 50%;
     background-color: var(--color-cocoaBrown);
     color: var(--color-white);
@@ -189,6 +211,9 @@ export const ModalLocalContainer = styled.div`
       transition: all 0.5s ease;
     }
   }
+  @media (min-width: 600px) {
+    width: 50%;
+  }
 `;
 
 // SecondModal
@@ -196,8 +221,14 @@ export const SecondModalContainer = styled.div`
   overflow: auto;
   overflow-y: auto;
   height: 50vh;
+  & .imageModal img {
+    width: 100%;
+    object-fit: cover;
+  }
+
   & .columns {
     display: flex;
+    flex-direction: column;
   }
   & select {
     display: block;
@@ -234,14 +265,21 @@ export const SecondModalContainer = styled.div`
   & button {
     margin-block-start: 0;
   }
+  @media (min-width: 600px) {
+    & .columns {
+      flex-direction: row;
+    }
+  }
 `;
 
 export const Menu = styled.div`
   position: absolute;
   right: 0;
+  overflow: auto;
+
   background-color: var(--color-white);
   height: 100vh;
-  width: 40%;
+  width: 100%;
   & .cartEmpty {
     height: 100%;
     display: flex;
@@ -323,6 +361,9 @@ export const Menu = styled.div`
       margin: 0;
     }
   }
+  @media (min-width: 600px) {
+    width: 40%;
+  }
 `;
 
 export const FormContainer = styled.div`
@@ -333,6 +374,10 @@ export const FormContainer = styled.div`
   }
   & .formContent {
     display: flex;
+    flex-direction: column;
+    @media (min-width: 600px) {
+      flex-direction: row;
+    }
   }
   & .formLeft {
     flex: 1 0 50%;
@@ -340,16 +385,21 @@ export const FormContainer = styled.div`
     box-shadow: 0px 11px 29px 0px #0000000D;
     border-radius: 1rem;
     padding: 1rem;
+    margin-block-end: 1rem;
+
+    @media (min-width: 600px) {
+      margin-block-end: 0;
+    }
   }
   & .formRight {
     flex: 1 0 50%;
     & form {
-      width: 80%;
+      width: 100%;
       margin: auto;
       display: flex;
       flex-direction: column;
-      & label:nth-of-type(2) {
-        margin-block-start: 30px;
+      @media (min-width: 600px) {
+        width: 80%;
       }
       
       & .inputContent {
@@ -416,4 +466,5 @@ export const FormContainer = styled.div`
     & span {
       cursor: pointer;
     }
+   
 `;

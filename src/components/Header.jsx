@@ -14,10 +14,12 @@ const Header = () => {
 
   return (
     <>
-      <HeaderContainer>
-        <h1 className="">Tiendita</h1>
+      <HeaderContainer className="">
+        <div className="title ">
+          <h1 className="">Tiendita</h1>
+        </div>
 
-        <div className="menuHeader debug ">
+        <div className="menuHeader  ">
           <div className="location " onClick={() => setShowModal(!showModal)}>
             <i className="icon-locationIcon"></i>
             <p className="ml-1 mb-0">{local}</p>

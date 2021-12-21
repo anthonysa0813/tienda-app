@@ -5,7 +5,9 @@ import heroImage from "../images/banner.png";
 const Hero = () => {
   return (
     <HeroContainer className=" heroImage">
-      <h2>¡Adquiere todos tus productos favoritos al mejor precio!</h2>
+      <h2 className="text-center">
+        ¡Adquiere todos tus productos favoritos al mejor precio!
+      </h2>
     </HeroContainer>
   );
 };

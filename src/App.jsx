@@ -26,7 +26,7 @@ const App = () => {
                   />
                   <Products
                     sectionTitle={"Los más populares"}
-                    urlData={`http://localhost:1337/api/populars?populate=image,lacteos`}
+                    urlData={`http://localhost:1337/api/lacteos?populate=image,lacteos`}
                   />
                 </div>
               </Route>
