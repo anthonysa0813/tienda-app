@@ -22,11 +22,11 @@ const App = () => {
 
                   <Products
                     sectionTitle={"Ofertas"}
-                    urlData={`http://localhost:1337/api/products?populate=image,products`}
+                    urlData={`https://api-rest-anthony.herokuapp.com/products`}
                   />
                   <Products
                     sectionTitle={"Los más populares"}
-                    urlData={`http://localhost:1337/api/lacteos?populate=image,lacteos`}
+                    urlData={`https://api-rest-anthony.herokuapp.com/products`}
                   />
                 </div>
               </Route>

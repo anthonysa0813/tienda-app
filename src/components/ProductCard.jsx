@@ -4,33 +4,35 @@ import { Card } from "../styles/main";
 
 const ProductCard = ({ product }) => {
   const { carrito, setCarrito } = useContext(CarritoContext);
-  const { id, attributes } = product;
-  const { name, price, discount, image } = attributes;
-  const { data } = image;
+
+  const { id, name, discount, image, price } = product;
+  // const { name, price, discount, image } = attributes;
+  // const { data } = image;
 
   const addProduct = (product) => {
+    console.log(product);
     setCarrito({
       ...carrito,
-      products: carrito.products.some((p) => p.name === product.attributes.name)
+      products: carrito.products.some((p) => p.name === product.name)
         ? [...carrito.products]
         : [
             ...carrito.products,
             {
               id: product.id,
-              name: product.attributes.name,
-              price: product.attributes.price,
-              discount: product.attributes.discount,
-              image: `http://localhost:1337${product.attributes.image.data.attributes.url}`,
+              name: product.name,
+              price: product.price,
+              discount: product.discount,
+              image: product.image,
             },
           ],
-      priceTotal: carrito.priceTotal + parseInt(product.attributes.price),
+      priceTotal: carrito.priceTotal + parseInt(product.price),
     });
   };
 
   return (
-    <Card className="">
+    <Card className="" key={id}>
       <div className="discount">{discount}%dsct.</div>
-      <img src={`http://localhost:1337${data.attributes.url}`} alt="" />
+      <img src={image} alt="" />
       <p>${price}/kg</p>
       <p>{name}</p>
       <button onClick={() => addProduct(product)}>Agregar</button>
